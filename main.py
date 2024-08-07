@@ -30,9 +30,10 @@ def get_number_of_each_character(string):
 def print_report(word_count, char_frequency):
     print(f"There are: {word_count} words in this book.")
     print("Each letter appears this many times:")
-    for char in char_frequency:
+    sorted_char_frequency = sorted(char_frequency.items(), key=lambda item: item[1], reverse=True)
+    for char, frequency in sorted_char_frequency:
         if char.isalpha():
-            print(f"{char} appears {char_frequency[char]} times in this book")
+            print(f"{char} appears {frequency} times in this book")
 
 
 main()
